@@ -43,7 +43,7 @@
                     <td><?php echo $data_pasien->tmp_lahir; ?></td>
                     <td><?php echo $data_pasien->tgl_lahir; ?></td>
                     <td><?php echo $data_pasien->email; ?></td>
-                    <td><button id="edit" href="<?php echo base_url('page/edit'); ?>" class="btn btn-success"><i class="fas fa-edit"></i></button>
+                    <td><button id="edit" href="<?php echo base_url('page/edit/').$data_pasien->id_pasien; ?>" class="btn btn-success"><i class="fas fa-edit"></i></button>
                       <button id="delete" class="btn btn-danger"><i class="fas fa-trash"></i></button>
                     </td>
                   </tr>

@@ -24,7 +24,9 @@ class Page extends CI_Controller {
 
 	public function edit($id_pasien='')
 	{
-		$this->load->view('edit');
+		$this->load->model('M_data');
+		$data['data_pasien'] = $this->M_data->data_pasien_where($id_pasien);
+		$this->load->view('edit', $data);
 	}
 
 	public function save_tambah($value='')
@@ -59,6 +61,35 @@ class Page extends CI_Controller {
 		
 		$this->M_data->save_tambah($data);
 		$this->M_data->save_tambahbmi($bmi_pasien);
+		redirect('page');
+	}
+
+	public function save_edit($id_pasien='')
+	{
+		$this->load->model('M_data');
+		
+		$data = array(
+			'id_pasien' => $id_pasien,
+			'kode' => 'PSN'.$id_pasien,
+			'nama' => $this->input->post('nama'),
+			'gender' => $this->input->post('gender'),
+			'tmp_lahir' => $this->input->post('tmp_lahir'),
+			'tgl_lahir' => $this->input->post('tgl_lahir'),
+			'email' => $this->input->post('email')
+	);
+
+		$bmi_pasien = array(
+			'id_pasien' => $id_pasien,
+			'tanggal' => date('Y-m-d'),
+			'berat' => $this->input->post('bb'),
+			'tinggi' => $this->input->post('tb'),
+			'bmi' => $this->input->post('bmi'),
+			'status_bmi' => $this->input->post('status_bmi'),
+			'catatan' => $this->input->post('catatan')
+	);
+		
+		$this->M_data->save_edit($data);
+		$this->M_data->save_editbmi($bmi_pasien);
 		redirect('page');
 	}
 }

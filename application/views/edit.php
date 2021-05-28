@@ -1,29 +1,31 @@
-<form action="<?= base_url('page/save_tambah') ?>" method="POST">
+<?php foreach ($data_pasien as $data_pasien) {} ?>
+
+<form action="<?= base_url('page/save_edit/').$this->uri->segment(3) ?>" method="POST">
 	
 	<div class="form-group">
 		<label for="exampleInputEmail1">Nama Lengkap</label>
-		<input type="text" name="nama" class="form-control" placeholder="Masukkan Nama Lengkap">
+		<input type="text" name="nama" value="<?php echo $data_pasien->nama ?>" class="form-control" placeholder="Masukkan Nama Lengkap">
 	</div>
 
 	<div class="form-group">
 		<label for="exampleInputEmail1">Tempat Lahir</label>
-		<input type="text" name="tmp_lahir" class="form-control" placeholder="Masukkan Tempat Lahir">
+		<input type="text" name="tmp_lahir" value="<?php echo $data_pasien->tmp_lahir ?>" class="form-control" placeholder="Masukkan Tempat Lahir">
 	</div>
 
 	<div class="form-group">
 		<label for="exampleInputEmail1">Tanggal Lahir</label>
-		<input type="date" name="tgl_lahir" class="form-control">
+		<input type="date" name="tgl_lahir" value="<?php echo $data_pasien->tgl_lahir ?>" class="form-control">
 	</div>
 
 	<div class="form-group">
 		<label for="exampleInputEmail1">Email</label>
-		<input type="email" name="email" class="form-control" placeholder="Masukkan email">
+		<input type="email" name="email"  value="<?php echo $data_pasien->email ?>"  class="form-control" placeholder="Masukkan email">
 	</div>
 
 	<div class="form-group">
 		<label for="exampleInputEmail1">Jenis Kelamin</label>
 		<select name="gender" class="form-control">
-			<option>Jenis Kelamin</option>
+			<option value="<?php echo $data_pasien->gender ?>" ><?php echo $data_pasien->gender ?></option>
 			<option value="L">Laki-Laki</option>
 			<option value="P">Perempuan</option>
 		</select>
@@ -32,7 +34,7 @@
 	<div class="form-group">
 		<label for="beratbadan">Berat Badan</label>
 		<div class="input-group mb-3">
-			<input type="text" name="bb" id="bb" class="form-control" onkeyup="hitung();" placeholder="Masukkan Berat Badan">
+			<input type="text" name="bb" value="<?php echo $data_pasien->berat ?>" id="bb" class="form-control" onkeyup="hitung();" placeholder="Masukkan Berat Badan">
 			<div class="input-group-append">
 				<span class="input-group-text">KG</span>
 			</div>
@@ -43,7 +45,7 @@
 	<div class="form-group">
 		<label for="tinggibadan">Tinggi Badan</label>
 		<div class="input-group mb-3">
-			<input type="text" name="tb" id="tb" onkeyup="hitung();" class="form-control" placeholder="Masukkan Tinggi Badan">
+			<input type="text" name="tb" value="<?php echo $data_pasien->tinggi ?>" id="tb" onkeyup="hitung();" class="form-control" placeholder="Masukkan Tinggi Badan">
 			<div class="input-group-append">
 				<span class="input-group-text">M</span>
 			</div>
@@ -52,9 +54,9 @@
 
 	<div class="form-group">
 		<label for="tinggibadan">Catatan</label>
-		<input type="text" name="catatan" id="catatan" class="form-control" placeholder="Catatan Untuk Pasien">
-		<input type="hidden" name="bmi" id="bmi">
-		<input type="hidden" name="status_bmi" id="status_bmi">
+		<input type="text" value="<?php echo $data_pasien->catatan ?>" name="catatan" id="catatan" class="form-control" placeholder="Catatan Untuk Pasien">
+		<input type="hidden" value="<?php echo $data_pasien->bmi ?>" name="bmi" id="bmi">
+		<input type="hidden" value="<?php echo $data_pasien->status_bmi ?>" name="status_bmi" id="status_bmi">
 	</div>
 
 	<center><div id="hasilbmi"></div></center>
