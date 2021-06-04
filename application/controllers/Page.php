@@ -29,6 +29,13 @@ class Page extends CI_Controller {
 		$this->load->view('edit', $data);
 	}
 
+	public function detail($id_pasien='')
+	{
+		$this->load->model('M_data');
+		$data['data_pasien'] = $this->M_data->data_pasien_where($id_pasien);
+		$this->load->view('detail', $data);
+	}
+
 	public function save_tambah($value='')
 	{
 		$this->load->model('M_data');
