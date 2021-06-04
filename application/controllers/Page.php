@@ -29,6 +29,17 @@ class Page extends CI_Controller {
 		$this->load->view('edit', $data);
 	}
 
+	public function delete($id_pasien='')
+	{
+		$this->load->model('M_data');
+		$hapus = $this->M_data->hapus_pasien($id_pasien);
+		if ($hapus) {
+			redirect();
+		}else{
+			redirect();
+		}
+	}
+
 	public function detail($id_pasien='')
 	{
 		$this->load->model('M_data');

@@ -44,9 +44,9 @@
                       <td><?php echo $data_pasien->tgl_lahir; ?></td>
                       <td><?php echo $data_pasien->email; ?></td>
                       <td>
-                        <button id="detail" href="<?php echo base_url('page/detail/').$data_pasien->id_pasien; ?>" class="btn btn-info"><i class="fas fa-eye"></i></button>
+                        <button id="detail" href="<?php echo base_url('page/detail/').$data_pasien->id_pasien; ?>"  class="btn btn-info"><i class="fas fa-eye"></i></button>
                         <button id="edit" href="<?php echo base_url('page/edit/').$data_pasien->id_pasien; ?>" class="btn btn-success"><i class="fas fa-edit"></i></button>
-                        <button id="delete" class="btn btn-danger"><i class="fas fa-trash"></i></button>
+                        <a id="delete" onclick="return confirm('Yakin ingin menghapus data ini ?');" href="<?php echo base_url('page/delete/').$data_pasien->id_pasien; ?>" class="btn btn-danger"><i class="fas fa-trash"></i></a>
                       </td>
                     </tr>
                   <?php } ?>

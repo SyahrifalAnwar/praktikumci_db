@@ -42,4 +42,12 @@ class M_data extends CI_Model {
 		return $query;
 	}
 
+	public function hapus_pasien($id_pasien='')
+	{
+		$sql = "DELETE FROM `bmi_pasien` WHERE `bmi_pasien`.`id_pasien` = '$id_pasien'";
+		$sql2 = "DELETE FROM `pasien` WHERE `pasien`.`id_pasien` = '$id_pasien'";
+		$this->db->query($sql);
+		return $this->db->query($sql2);
+	}
+
 }
